@@ -149,8 +149,27 @@ ggplot( data = agg_df_week, aes(x = week_days, y = cnt, color = week_days, fill 
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot4.png">
 </picture> 
 
+Особенно интересным выглядит график распределения количетсова поездок по дням недели, где явно лидирует начало недели. С большой долей вероятности это пользователи, которые хотят решить рабочие вопросы в начале недели, не тратя время в пробках.
 
-
+```
+ggplot(data = df)+
+  geom_point(data = df, mapping = aes (y = start_lat, x = start_lng), 
+             size = 0.4, 
+             shape = 23, 
+             fill = "green")+
+  geom_point(data = df, mapping = aes (y = end_lat, x = end_lng), 
+             size = 0.4, 
+             shape = 23, 
+             fill = "red")+
+  labs(title = "Координаты начала и конца поездок",
+       x = "Долгота",
+       y = "Широта")
+```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Rplot5.png">
+  <source media="(prefers-color-scheme: light)" srcset="Rplot5.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot5.png">
+</picture> 
 
 
 
