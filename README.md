@@ -73,7 +73,8 @@ agg_df_week <- df %>%
 | Sunday    | 27493784 secs | 908.5250 secs | 30262 |
 
 Данные получены. Приступаю к построению графиков основынных на данных с помощью пакета ggplot2.  
-График "Среднее время одной поездки в минутах"
+
+Построил графики отражающие среднее время одной поездки в минутах и время прокатаю
 ```
 ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0), 
                           group = member_casual)) +
@@ -92,7 +93,7 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
 </picture>  
 
 Без учета docked_bike время среднее время одной поездки сопостовимо для электрических и классическиз велосипедов (10-11 минут).  
-Явно выделяются поездки на классических велосипедах без подписки (20 минут).
+Явно выделяются поездки на классических велосипедах случайными пользователями (20 минут).
 ```
 ggplot(data = agg_df,   aes(x = rideable_type, y = round(sum/360, digit = 0), 
                             group = member_casual)) +                           
@@ -112,6 +113,8 @@ ggplot(data = agg_df,   aes(x = rideable_type, y = round(sum/360, digit = 0),
 
 Суммарный график дает понять что основные пользователи проката это велосипедисты, у которых оформлена подписка, небольшой приоритет отдается классичксим велосипедам. Доля случайных пользователей 2.5 - 3 раза ниже.
 
+Построил графики отражающие нагрузку по дням недели.
+
 ```
 agg_df_week$week_days <- factor(agg_df_week$week_days, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday"))
 ggplot( data = agg_df_week, aes(x = week_days, y = avg, color = week_days, fill = week_days))+
@@ -127,6 +130,12 @@ ggplot( data = agg_df_week, aes(x = week_days, y = avg, color = week_days, fill 
   <source media="(prefers-color-scheme: light)" srcset="Rplot3.png">
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot3.png">
 </picture> 
+
+Яыными лиделами являются выходные дни. Если рассматривать графики за короткие промежутки времени данным могут отличатся. Выходные дни с плохой погодой не покажут сопостовимые данные, так и будние дни выпадающие на праздники могут сильно выделятся от статистики за большой период.
+
+
+
+
 
 
 
