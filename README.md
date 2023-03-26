@@ -133,7 +133,21 @@ ggplot( data = agg_df_week, aes(x = week_days, y = avg, color = week_days, fill 
 
 Яыными лиделами являются выходные дни. Если рассматривать графики за короткие промежутки времени данным могут отличатся. Выходные дни с плохой погодой не покажут сопостовимые данные, так и будние дни выпадающие на праздники могут сильно выделятся от статистики за большой период.
 
-
+```
+agg_df_week$week_days <- factor(agg_df_week$week_days, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday"))
+ggplot( data = agg_df_week, aes(x = week_days, y = cnt, color = week_days, fill = week_days))+
+  geom_col()+
+  geom_text(aes(label = cnt, avg = avg + 0.05), 
+            position = position_dodge(0.9), vjust = 0)+
+  labs(title = "Количество поездок по дням недели",
+       x = "День недели",
+       y = "Количество поездок")
+```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Rplot4.png">
+  <source media="(prefers-color-scheme: light)" srcset="Rplot4.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot4.png">
+</picture> 
 
 
 
