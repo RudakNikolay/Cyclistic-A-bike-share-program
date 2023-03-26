@@ -85,12 +85,22 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
        x = "Разрез тип велосипеда, подписка",
        y = "Время поездок")
 ```
-
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="[YOUR-DARKMODE-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
- <source media="(prefers-color-scheme: light)" srcset="[YOUR-LIGHTMODE-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
- <img alt="YOUR-ALT-TEXT" src="[YOUR-DEFAULT-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/148277c591d81275646dcf62e18194d1202378c2/Rplot%201.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/148277c591d81275646dcf62e18194d1202378c2/Rplot%201.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/148277c591d81275646dcf62e18194d1202378c2/Rplot%201.png">
 </picture>
+```
+ggplot(data = agg_df,   aes(x = rideable_type, y = round(sum/360, digit = 0), 
+                            group = member_casual)) +                           
+  geom_col(aes(fill = member_casual), 
+           position = "dodge") +                                                
+  geom_text(aes(label = round(sum/360, digit = 0), sum = sum + 0.05), 
+            position = position_dodge(0.9), vjust = 0)+
+  labs(title = "Время поездок в часах",
+       x = "Разрез тип велосипеда, подписка",
+       y = "Время поездок")
+```
 
 
 
