@@ -91,6 +91,8 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot 1.png">
 </picture>  
 
+Без учета docked_bike время среднее время одной поездки сопостовимо для электрических и классическиз велосипедов (10-11 минут).  
+Явно выделяются поездки на классических велосипедах без подписки (20 минут).
 ```
 ggplot(data = agg_df,   aes(x = rideable_type, y = round(sum/360, digit = 0), 
                             group = member_casual)) +                           
@@ -108,6 +110,23 @@ ggplot(data = agg_df,   aes(x = rideable_type, y = round(sum/360, digit = 0),
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot2.png">
 </picture> 
 
+Суммарный график дает понять что основные пользователи проката это велосипедисты, у которых оформлена подписка, небольшой приоритет отдается классичксим велосипедам. Доля случайных пользователей 2.5 - 3 раза ниже.
+
+```
+agg_df_week$week_days <- factor(agg_df_week$week_days, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday","Sunday"))
+ggplot( data = agg_df_week, aes(x = week_days, y = avg, color = week_days, fill = week_days))+
+  geom_col()+
+  geom_text(aes(label = round(avg/60, digit = 0), avg = avg + 0.05), 
+            position = position_dodge(0.9), vjust = 0)+
+  labs(title = "Среднее время поездки по дням недели",
+       x = "День недели",
+       y = "Среднее время поездки")
+```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Rplot3.png">
+  <source media="(prefers-color-scheme: light)" srcset="Rplot3.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot3.png">
+</picture> 
 
 
 
