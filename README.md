@@ -87,9 +87,9 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
        y = "Время поездок")
 ```
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="Rplot 1.png">
-  <source media="(prefers-color-scheme: light)" srcset="Rplot 1.png">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot 1.png">
+  <source media="(prefers-color-scheme: dark)" srcset="Rplot1.png">
+  <source media="(prefers-color-scheme: light)" srcset="Rplot1.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot1.png">
 </picture>  
 
 Без учета docked_bike время среднее время одной поездки сопостовимо для электрических и классическиз велосипедов (10-11 минут).  
