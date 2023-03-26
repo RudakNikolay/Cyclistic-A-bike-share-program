@@ -87,9 +87,9 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
 ```
 
 <picture>
- <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
- <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <source media="(prefers-color-scheme: dark)" srcset="[YOUR-DARKMODE-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
+ <source media="(prefers-color-scheme: light)" srcset="[YOUR-LIGHTMODE-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
+ <img alt="YOUR-ALT-TEXT" src="[YOUR-DEFAULT-IMAGE](https://github.com/RudakNikolay/Cyclistic-A-bike-share-program/blob/main/Rplot%201.png)">
 </picture>
 
 
