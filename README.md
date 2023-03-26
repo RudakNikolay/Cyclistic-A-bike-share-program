@@ -86,7 +86,11 @@ ggplot(data = agg_df, aes(x = rideable_type, y = round(avg/60, digit = 0),
        y = "Время поездок")
 ```
 
-
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
+ <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+</picture>
 
 
 
