@@ -151,6 +151,8 @@ ggplot( data = agg_df_week, aes(x = week_days, y = cnt, color = week_days, fill 
 
 Особенно интересным выглядит график распределения количетсова поездок по дням недели, где явно лидирует начало недели. С большой долей вероятности это пользователи, которые хотят решить рабочие вопросы в начале недели, не тратя время в пробках.
 
+Построим график рассеивания. К сожалению не смог полноценно воспользоваться библиотекой ggmap. Точки начала поездок перенс на карту CorelDrow с привязкой к двум точкам.
+
 ```
 ggplot(data = df)+
   geom_point(data = df, mapping = aes (y = start_lat, x = start_lng), 
@@ -171,13 +173,30 @@ ggplot(data = df)+
   <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot5.png">
 </picture> 
 
-
-
-
-
+Из-за высокой плотности в середине графика не совсем понятнен спрос в самой густой точке.
+Строим тепловую карту и переносим на карту.
 
 ```
-
+ggplot(data = df)+
+  stat_density_2d(data = df, mapping = aes (y = start_lat, x = start_lng, fill = ..level..),
+                  size = 1,
+                  geom = "polygon",
+                  color = "blue",
+                  alpha = 0.07)+
+  stat_density_2d(data = df, mapping = aes (y = end_lat, x = end_lng, fill = ..level..),
+                  size = 1,
+                  geom = "polygon",
+                  color = "red",
+                  alpha = 0.07)+
+  labs(title = "Тепловая карта",
+       x = "Долгота",
+       y = "Широта")
 ```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Rplot6.png">
+  <source media="(prefers-color-scheme: light)" srcset="Rplot6.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="Rplot6.png">
+</picture> 
+
 
 
